@@ -1,0 +1,29 @@
+/* ===== QUOTE ===== */
+.quote-section {
+  background: var(--burgundy);
+  padding: 80px 20px;
+  text-align: center;
+}
+.quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  line-height: 0.5;
+  color: rgba(201,168,76,0.4);
+  display: block;
+  margin-bottom: 20px;
+}
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  color: var(--cream);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+.quote-author {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+}

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Матвей & Елена — Свадьба 2026</title>
+
+  <!-- Шрифты и иконки -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Lato:wght@300;400&family=Cedarville+Cursive&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+  <!-- GSAP & jQuery для карусели -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/carousel.css" />
+</head>
+<body>
+
+  <!-- ===== ИНТРО (видео-открытка) ===== -->
+  <div id="video-opener">
+    <video id="envelope-video" muted playsinline>
+      <source src="assets/ribbon.mp4" type="video/mp4" />
+      Ваш браузер не поддерживает видео.
+    </video>
+    <button id="open-video-button">Открыть</button>
+  </div>
+
+  <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+  <div id="main-content-wrapper" class="main-content-wrapper">
+
+    <!-- ===== ПАДАЮЩИЕ СЕРДЦА (canvas) ===== -->
+    <canvas id="petals-canvas"></canvas>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+      
+      <!-- ===== УГЛОВЫЕ ДЕКОРАТИВНЫЕ ИЗОБРАЖЕНИЯ ===== -->
+      <img src="assets/right.png" alt="top-right" class="top-right-decoration">
+      <img src="assets/left.png" alt="top-left" class="top-left-decoration">
+      
+      <!-- ===== ТЕКСТ СВЕРХУ ===== -->
+      <div class="hero-text-top">
+        <div class="hero-eyebrow">мы женимся!</div>
+      </div>
+
+      <!-- ===== КАРТОЧКИ ===== -->
+      <div class="polaroids-wrapper">
+        <div class="polaroid-wrapper left">
+          <div class="card-container" id="cardContainerLeft">
+            <div class="card" id="cardLeft">
+              <div class="front">
+                <div class="photo-wrapper">
+                  <img src="assets/1.jpg" alt="Polaroid" />
+                </div>
+                <h3>Матвей</h3>
+              </div>
+              <div class="back">
+                <p>Любовь — это когда<br>два сердца бьются<br>в унисон.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="polaroid-wrapper right">
+          <div class="card-container" id="cardContainerRight">
+            <div class="card" id="cardRight">
+              <div class="front">
+                <div class="photo-wrapper">
+                  <img src="assets/2.jpg" alt="Polaroid" />
+                </div>
+                <h3>Елена</h3>
+              </div>
+              <div class="back">
+                <p>Счастье — это когда<br>мы вместе,<br>навсегда.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ТЕКСТ СНИЗУ ===== -->
+      <div class="hero-text-bottom">
+        <div class="hero-divider"></div>
+        <div class="hero-date">19 июля 2026 года</div>
+        <p class="hero-subtitle">Санкт-Петербург, Кушелевская дорога</p>
+      </div>
+
+      <!-- Декоративные кольца -->
+      <div class="hero-bg-ring"></div>
+      <div class="hero-bg-ring"></div>
+      <div class="hero-bg-ring"></div>
+
+      <svg class="deco-hearts" style="top:10%;left:5%;width:80px" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 68 C20 52 8 42 8 28 C8 18 16 10 26 10 C32 10 38 14 40 18 C42 14 48 10 54 10 C64 10 72 18 72 28 C72 42 60 52 40 68Z" stroke="#7B1A2A" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+      </svg>
+      <svg class="deco-hearts" style="bottom:12%;right:6%;width:100px;opacity:0.08" viewBox="0 0 80 80" fill="none">
+        <path d="M40 68 C20 52 8 42 8 28 C8 18 16 10 26 10 C32 10 38 14 40 18 C42 14 48 10 54 10 C64 10 72 18 72 28 C72 42 60 52 40 68Z" stroke="#C9A84C" stroke-width="1.5" fill="none"/>
+      </svg>
+
+      <div class="sketch-heart" style="top:12%;left:12%;">♡</div>
+      <div class="sketch-heart" style="top:18%;right:12%;animation-delay:2s;">♡</div>
+      <div class="sketch-heart" style="bottom:22%;left:18%;font-size:70px;animation-delay:4s;">♡</div>
+      <div class="sketch-heart" style="bottom:15%;right:15%;font-size:58px;animation-delay:6s;">♡</div>
+
+    </section>
+
+    <!-- ═══ RIBBON ═══ -->
+    <div class="ribbon">
+      <div class="ribbon-track" id="ribbon-track">
+        <span>Матвей</span><span class="dot">♡</span>
+        <span>Елена</span><span class="dot">♡</span>
+        <span>2026</span><span class="dot">♡</span>
+        <span>Свадьба</span><span class="dot">♡</span>
+      </div>
+    </div>
+
+    <!-- ═══ OUR STORY ═══ -->
+    <section class="story reveal">
+      <div class="section-inner">
+        <div class="section-ornament">
+          <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+            <line x1="0" y1="12" x2="46" y2="12" stroke="#C9A84C" stroke-width="0.8"/>
+            <path d="M60 4 C52 4 46 8 46 12 C46 16 52 20 60 20 C68 20 74 16 74 12 C74 8 68 4 60 4Z" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+            <line x1="74" y1="12" x2="120" y2="12" stroke="#C9A84C" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <div class="story-grid">
+          <div class="story-text-block">
+            <span class="section-label">наша история</span>
+            <h2 class="section-heading">Как мы встретились и<br>полюбили друг друга</h2>
+            <div class="gold-line"></div>
+            <p class="section-text">Наша история началась в самый обычный день, но превратилась в самое невероятное приключение. Мы благодарны каждому моменту, проведённому вместе.</p>
+            <p class="section-text" style="margin-top:18px">Теперь мы хотим разделить эту радость с вами, дорогие гости!</p>
+          </div>
+          <!-- ===== 3D КАРУСЕЛЬ ===== -->
+          <div class="story-carousel">
+            <div class="carousel-stage">
+              <div class="carousel-container">
+                <div class="carousel-ring" id="carousel-ring">
+                  <div class="carousel-img"></div>
+                  <div class="carousel-img"></div>
+                  <div class="carousel-img"></div>
+                  <div class="carousel-img"></div>
+                  <div class="carousel-img"></div>
+                  <div class="carousel-img"></div>
+                  <div class="carousel-img"></div>
+                  <div class="carousel-img"></div>
+                  <div class="carousel-img"></div>
+                  <div class="carousel-img"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DATE ═══ -->
+    <section class="date-section reveal">
+      <div class="section-inner" style="text-align:center">
+        <h2 class="section-heading" style="text-align:center">Когда?</h2>
+        <div class="gold-line" style="margin:0 auto 40px"></div>
+        <div class="calendar-card">
+          <div class="cal-month">Июль</div>
+          <div class="cal-year">2 0 2 6</div>
+          <div class="cal-grid">
+            <div class="cal-header-cell">Пн</div>
+            <div class="cal-header-cell">Вт</div>
+            <div class="cal-header-cell">Ср</div>
+            <div class="cal-header-cell">Чт</div>
+            <div class="cal-header-cell">Пт</div>
+            <div class="cal-header-cell">Сб</div>
+            <div class="cal-header-cell">Вс</div>
+            <div class="cal-cell dimmed"></div>
+            <div class="cal-cell dimmed"></div>
+            <div class="cal-cell">1</div>
+            <div class="cal-cell">2</div>
+            <div class="cal-cell">3</div>
+            <div class="cal-cell">4</div>
+            <div class="cal-cell">5</div>
+            <div class="cal-cell">6</div>
+            <div class="cal-cell">7</div>
+            <div class="cal-cell">8</div>
+            <div class="cal-cell">9</div>
+            <div class="cal-cell">10</div>
+            <div class="cal-cell">11</div>
+            <div class="cal-cell">12</div>
+            <div class="cal-cell">13</div>
+            <div class="cal-cell">14</div>
+            <div class="cal-cell">15</div>
+            <div class="cal-cell">16</div>
+            <div class="cal-cell">17</div>
+            <div class="cal-cell">18</div>
+            <div class="cal-cell active">19</div>
+            <div class="cal-cell">20</div>
+            <div class="cal-cell">21</div>
+            <div class="cal-cell">22</div>
+            <div class="cal-cell">23</div>
+            <div class="cal-cell">24</div>
+            <div class="cal-cell">25</div>
+            <div class="cal-cell">26</div>
+            <div class="cal-cell">27</div>
+            <div class="cal-cell">28</div>
+            <div class="cal-cell">29</div>
+            <div class="cal-cell">30</div>
+            <div class="cal-cell">31</div>
+            <div class="cal-cell dimmed"></div>
+            <div class="cal-cell dimmed"></div>
+          </div>
+          <!-- ===== ТАЙМЕР ВНУТРИ КАЛЕНДАРЯ ===== -->
+          <div class="cal-divider"></div>
+          <div class="cal-timer-wrapper">
+            <div class="cal-timer-label">До свадьбы осталось</div>
+            <div id="flipdown" class="flipdown"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TIMELINE ═══ -->
+    <section class="timeline-section reveal">
+      <div class="section-inner">
+        <span class="section-label">программа дня</span>
+        <h2 class="section-heading">Во сколько?</h2>
+        <div class="gold-line"></div>
+        <div class="timeline">
+          
+          <!-- 1-й пункт – фото справа (111.png) -->
+          <div class="tl-item tl-item-with-image">
+            <div class="tl-time">15:30</div>
+            <div class="tl-title">Сбор гостей и фуршет</div>
+            <div class="tl-desc">Расслабьтесь с бокалом шампанского после дороги, познакомьтесь и пообщайтесь</div>
+            <div class="tl-image">
+              <img src="assets/111.png" alt="фуршет" />
+            </div>
+          </div>
+
+          <!-- 2-й пункт – фото слева (222.png) -->
+          <div class="tl-item tl-item-with-image-left">
+            <div class="tl-image">
+              <img src="assets/222.png" alt="церемония" />
+            </div>
+            <div class="tl-time">16:00</div>
+            <div class="tl-title">Выездная церемония</div>
+            <div class="tl-desc">Немного смеёмся, немного плачем — клянёмся любить друг друга вечно</div>
+          </div>
+
+          <!-- 3-й пункт – без фото -->
+          <div class="tl-item">
+            <div class="tl-time">17:00</div>
+            <div class="tl-title">Начало банкета</div>
+            <div class="tl-desc">Гастрономическое путешествие, тосты и танцы до упаду</div>
+          </div>
+
+          <!-- 4-й пункт – без фото -->
+          <div class="tl-item">
+            <div class="tl-time">23:00</div>
+            <div class="tl-title">Свадебный торт</div>
+            <div class="tl-desc">Плавное, сладкое завершение прекрасного дня</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ LOCATION ═══ -->
+    <section class="location-section reveal">
+      <div class="section-inner">
+        <span class="section-label">место проведения</span>
+        <h2 class="section-heading">Где?</h2>
+        <div class="gold-line"></div>
+        <div class="location-card">
+          <div class="location-map-placeholder">
+            <svg viewBox="0 0 200 200" width="200" height="200" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;opacity:0.15">
+              <rect x="10" y="10" width="180" height="180" stroke="#7B1A2A" stroke-width="0.5"/>
+              <line x1="100" y1="10" x2="100" y2="190" stroke="#7B1A2A" stroke-width="0.5"/>
+              <line x1="10" y1="100" x2="190" y2="100" stroke="#7B1A2A" stroke-width="0.5"/>
+              <circle cx="100" cy="100" r="40" stroke="#7B1A2A" stroke-width="0.5"/>
+              <circle cx="100" cy="100" r="70" stroke="#7B1A2A" stroke-width="0.5"/>
+            </svg>
+            <div class="map-pin">📍</div>
+          </div>
+          <div>
+            <div class="location-name">Санкт-Петербург, Кушелевская дорога</div>
+            <div class="location-address">
+              ул. Кушелевская дорога, д. 6, к. 1,<br>Санкт-Петербург, дом 12
+            </div>
+            <a class="btn" href="https://maps.google.com/?q=Кушелевская+дорога+6к1+Санкт-Петербург" target="_blank">→ Открыть карту</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== НОВЫЙ РАЗДЕЛ — ПОДЕЛИТЬСЯ ФОТО ===== -->
+    <section class="share-photo-section reveal">
+      <div class="section-inner">
+        <div class="share-photo-content">
+          <span class="section-label" style="color: var(--gold-light);">общий альбом</span>
+          <h2 class="section-heading" style="color: var(--cream);">Поделиться фото</h2>
+          <div class="gold-line" style="margin: 0 auto 30px; background: linear-gradient(90deg, transparent, var(--gold-light), transparent);"></div>
+          
+          <div class="share-icon">📸</div>
+          <p class="share-text">
+            Дорогие гости! Мы будем очень рады, если вы загрузите свои фотографии с нашей свадьбы в общий альбом.<br>
+            Все самые тёплые и искренние моменты останутся с нами навсегда.
+          </p>
+          <a class="share-btn" href="https://drive.google.com/drive/folders/ВАША_ССЫЛКА" target="_blank">
+            <i class="fa-solid fa-cloud-arrow-up"></i> Загрузить фото
+          </a>
+          <p class="share-hint">Перейдите по ссылке и добавьте свои снимки в папку</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DRESS CODE ═══ -->
+    <section class="dress-section reveal">
+      <div class="section-inner">
+        <span class="section-label">дресс-код</span>
+        <h2 class="section-heading">Как одеться?</h2>
+        <div class="gold-line"></div>
+        <p class="section-text">Мы будем рады, если вы поддержите нашу цветовую палитру. Просим воздержаться от чисто белого — это цвет невесты ♡</p>
+        <div class="palette-row">
+          <div class="palette-swatch">
+            <div class="swatch-color" style="background:#7B1A2A"></div>
+            <div class="swatch-name">бордо</div>
+          </div>
+          <div class="palette-swatch">
+            <div class="swatch-color" style="background:#C9A84C"></div>
+            <div class="swatch-name">золото</div>
+          </div>
+          <div class="palette-swatch">
+            <div class="swatch-color" style="background:#D4C5B5"></div>
+            <div class="swatch-name">пудра</div>
+          </div>
+          <div class="palette-swatch">
+            <div class="swatch-color" style="background:#4A3728"></div>
+            <div class="swatch-name">шоколад</div>
+          </div>
+          <div class="palette-swatch">
+            <div class="swatch-color" style="background:#8FA68E"></div>
+            <div class="swatch-name">шалфей</div>
+          </div>
+          <div class="palette-swatch">
+            <div class="swatch-color" style="background:#1C1212"></div>
+            <div class="swatch-name">чёрный</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RSVP (обновлённый) ═══ -->
+    <section class="rsvp-section reveal">
+      <div class="section-inner">
+        <div style="text-align:center;margin-bottom:48px">
+          <span class="section-label" style="display:block;text-align:center">подтверждение</span>
+          <h2 class="section-heading" style="text-align:center">Вы придёте?</h2>
+          <div class="gold-line" style="margin:0 auto 20px"></div>
+          <p class="section-text" style="text-align:center">Просим подтвердить участие до 1 июля 2026 года</p>
+        </div>
+        <div id="rsvp-form-wrap">
+          <div class="rsvp-form">
+            <div class="form-field">
+              <label for="rsvp-name">Ваше имя</label>
+              <input type="text" id="rsvp-name" placeholder="Иван Иванов">
+            </div>
+            <div class="form-field">
+              <label for="rsvp-attend">Вы придёте?</label>
+              <select id="rsvp-attend">
+                <option value="">Выберите ответ</option>
+                <option value="yes">Да, буду с радостью! ♡</option>
+                <option value="plus1">Буду с партнёром ♡♡</option>
+                <option value="no">К сожалению, не смогу</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="rsvp-wish">Пожелания молодожёнам</label>
+              <textarea id="rsvp-wish" placeholder="Напишите тёплые слова..."></textarea>
+            </div>
+            <div class="form-field">
+              <label for="rsvp-music">Какие песни вы хотели бы услышать?</label>
+              <textarea id="rsvp-music" placeholder="Напишите ваши музыкальные пожелания..."></textarea>
+            </div>
+            <button class="rsvp-submit" onclick="submitRSVP()">Отправить ответ</button>
+          </div>
+        </div>
+        <div class="rsvp-success" id="rsvp-success">
+          <span class="big-heart">♡</span>
+          <p>Спасибо, <strong id="rsvp-name-display"></strong>!<br>Мы ждём вас с нетерпением.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+      <div class="footer-names">Матвей & Елена</div>
+      <p>19 · 07 · 2026 &nbsp;·&nbsp; Санкт-Петербург, Кушелевская дорога</p>
+      <svg style="margin-top:24px;opacity:0.3" width="80" height="20" viewBox="0 0 80 20" fill="none">
+        <line x1="0" y1="10" x2="30" y2="10" stroke="#C9A84C" stroke-width="0.8"/>
+        <path d="M40 3 C35 3 30 6 30 10 C30 14 35 17 40 17 C45 17 50 14 50 10 C50 6 45 3 40 3Z" stroke="#C9A84C" stroke-width="0.8" fill="none"/>
+        <line x1="50" y1="10" x2="80" y2="10" stroke="#C9A84C" stroke-width="0.8"/>
+      </svg>
+    </footer>
+
+  </div>
+
+  <!-- Подключаем jQuery и Sakura -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/timoschaefer/jQuery-Sakura/jquery-sakura.min.js"></script>
+  
+  <!-- JavaScript -->
+  <script src="js/video-opener.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/ribbon.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/hearts.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/timer.js"></script>
+</body>
+</html>

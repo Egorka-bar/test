@@ -1,0 +1,313 @@
+/* ===== TIMER SECTION ===== */
+.timer-section {
+  background: var(--cream);
+  padding: 60px 20px 80px;
+}
+
+.timer-section .section-inner {
+  max-width: 740px;
+}
+
+.timer-wrapper {
+  text-align: center;
+  background: white;
+  padding: 40px 30px 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(201,168,76,0.2);
+  box-shadow: 0 8px 48px rgba(0,0,0,0.04);
+}
+
+.timer-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+  margin-bottom: 30px;
+}
+
+/* ===== FLIPDOWN СТИЛИ (светлая тема) ===== */
+.flipdown {
+  overflow: visible;
+  width: 510px;
+  height: 110px;
+  margin: 0 auto;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+.flipdown .rotor-group {
+  position: relative;
+  float: left;
+  padding-right: 30px;
+}
+
+.flipdown .rotor-group:last-child {
+  padding-right: 0;
+}
+
+.flipdown .rotor-group-heading:before {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
+  content: "Дней";
+}
+
+.flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
+  content: "Часов";
+}
+
+.flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
+  content: "Минут";
+}
+
+.flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
+  content: "Секунд";
+}
+
+.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before,
+.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+  content: '';
+  position: absolute;
+  left: 115px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--gold);
+}
+
+.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before {
+  bottom: 20px;
+}
+
+.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+  bottom: 50px;
+}
+
+.flipdown .rotor {
+  position: relative;
+  float: left;
+  width: 50px;
+  height: 80px;
+  margin: 0px 5px 0px 0px;
+  border-radius: 6px;
+  font-size: 4rem;
+  text-align: center;
+  perspective: 200px;
+  background: #f5f0eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.flipdown .rotor:last-child {
+  margin-right: 0;
+}
+
+.flipdown .rotor-top,
+.flipdown .rotor-bottom {
+  overflow: hidden;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+}
+
+.flipdown .rotor-leaf {
+  z-index: 1;
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  transform-style: preserve-3d;
+  transition: transform 0s;
+}
+
+.flipdown .rotor-leaf.flipped {
+  transform: rotateX(-180deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.flipdown .rotor-leaf-front,
+.flipdown .rotor-leaf-rear {
+  overflow: hidden;
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  margin: 0;
+  transform: rotateX(0deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flipdown .rotor-leaf-front {
+  line-height: 80px;
+  border-radius: 6px 6px 0px 0px;
+  color: #222;
+  background: #e8e0d8;
+}
+
+.flipdown .rotor-leaf-rear {
+  line-height: 0px;
+  border-radius: 0px 0px 6px 6px;
+  transform: rotateX(-180deg);
+  color: #333;
+  background: #f5f0eb;
+}
+
+.flipdown .rotor-top {
+  line-height: 80px;
+  border-radius: 6px 6px 0px 0px;
+  color: #222;
+  background: #e8e0d8;
+}
+
+.flipdown .rotor-bottom {
+  bottom: 0;
+  line-height: 0px;
+  border-radius: 0px 0px 6px 6px;
+  color: #333;
+  background: #f5f0eb;
+}
+
+.flipdown .rotor:after {
+  content: '';
+  z-index: 2;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 50px;
+  height: 40px;
+  border-radius: 0px 0px 6px 6px;
+  border-top: solid 1px rgba(0,0,0,0.08);
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 550px) {
+  .flipdown {
+    width: 312px;
+    height: 70px;
+  }
+  .flipdown .rotor {
+    font-size: 2.2rem;
+    margin-right: 3px;
+    height: 50px;
+  }
+  .flipdown .rotor,
+  .flipdown .rotor-leaf,
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top,
+  .flipdown .rotor-bottom,
+  .flipdown .rotor:after {
+    width: 30px;
+  }
+  .flipdown .rotor-group {
+    padding-right: 20px;
+  }
+  .flipdown .rotor-group:last-child {
+    padding-right: 0px;
+  }
+  .flipdown .rotor-group-heading:before {
+    font-size: 0.7rem;
+    height: 20px;
+    line-height: 20px;
+  }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before,
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+    left: 69px;
+    height: 8px;
+    width: 8px;
+  }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before {
+    bottom: 13px;
+  }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+    bottom: 29px;
+  }
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-top {
+    line-height: 50px;
+  }
+  .flipdown .rotor-leaf,
+  .flipdown .rotor {
+    height: 50px;
+  }
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top,
+  .flipdown .rotor-bottom,
+  .flipdown .rotor:after {
+    height: 25px;
+  }
+  .timer-wrapper {
+    padding: 25px 15px 30px;
+  }
+  .timer-label {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .flipdown {
+    width: 260px;
+    height: 60px;
+  }
+  .flipdown .rotor {
+    font-size: 1.6rem;
+    margin-right: 2px;
+    height: 40px;
+  }
+  .flipdown .rotor,
+  .flipdown .rotor-leaf,
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top,
+  .flipdown .rotor-bottom,
+  .flipdown .rotor:after {
+    width: 24px;
+  }
+  .flipdown .rotor-group {
+    padding-right: 14px;
+  }
+  .flipdown .rotor-group:last-child {
+    padding-right: 0px;
+  }
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-top {
+    line-height: 40px;
+  }
+  .flipdown .rotor-leaf,
+  .flipdown .rotor {
+    height: 40px;
+  }
+  .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top,
+  .flipdown .rotor-bottom,
+  .flipdown .rotor:after {
+    height: 20px;
+  }
+  .flipdown .rotor-group-heading:before {
+    font-size: 0.6rem;
+    height: 16px;
+    line-height: 16px;
+  }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before,
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+    left: 56px;
+    height: 6px;
+    width: 6px;
+  }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before {
+    bottom: 10px;
+  }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+    bottom: 22px;
+  }
+}
