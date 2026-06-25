@@ -47,18 +47,24 @@ document.addEventListener('DOMContentLoaded', function() {
         this.now = this._getTime();
         const diff = Math.max(0, this.epoch - this.now);
         const dayCount = Math.floor(diff / 86400);
-        this.daysRemaining = String(dayCount).length || 1;
-        const rotorCount = Math.max(2, this.daysRemaining) + 6;
+        // Определяем сколько цифр в количестве дней
+        const dayDigits = String(dayCount).length;
+        // Минимум 2 цифры для дней (если меньше 10, то добавляем ведущий ноль)
+        this.daysRemaining = Math.max(2, dayDigits);
+        // Всего роторов: дни (2 или 3) + 6 (часы, минуты, секунды)
+        const rotorCount = this.daysRemaining + 6;
         
         for (let i = 0; i < rotorCount; i++) {
           this.rotors.push(this._createRotor(0));
         }
         
         let idx = 0;
-        const dayRotors = this.rotors.slice(0, Math.max(2, this.daysRemaining));
+        // Группа дней
+        const dayRotors = this.rotors.slice(0, this.daysRemaining);
         this.element.appendChild(this._createGroup(dayRotors, 0));
-        idx += dayRotors.length;
+        idx += this.daysRemaining;
         
+        // Остальные группы: часы, минуты, секунды - по 2 ротора
         for (let g = 1; g <= 3; g++) {
           const group = this.rotors.slice(idx, idx + 2);
           this.element.appendChild(this._createGroup(group, g));
@@ -127,10 +133,13 @@ document.addEventListener('DOMContentLoaded', function() {
       
       _updateClockValues(init = false) {
         const pad = (n) => String(n).padStart(2, '0');
-        this.clockStrings.d = pad(this.clockValues.d);
+        // Дни — без паддинга, чтобы отображалось точное количество
+        this.clockStrings.d = String(this.clockValues.d);
         this.clockStrings.h = pad(this.clockValues.h);
         this.clockStrings.m = pad(this.clockValues.m);
         this.clockStrings.s = pad(this.clockValues.s);
+        
+        // Собираем все цифры в один массив
         this.clockValuesAsString = (this.clockStrings.d + this.clockStrings.h + this.clockStrings.m + this.clockStrings.s).split('');
         
         this.rotorLeafFront.forEach((el, i) => el.textContent = this.prevClockValuesAsString[i] || '0');
@@ -171,9 +180,21 @@ document.addEventListener('DOMContentLoaded', function() {
     window.FlipDown = FlipDown;
   })();
 
-  // Запуск таймера на 19 июля 2026 года
-  const targetDate = new Date('2026-07-19T00:00:00').getTime() / 1000;
-  new FlipDown(targetDate, 'flipdown', { theme: 'light' })
+  // ===== ЗАПУСК ТАЙМЕРА НА 7 НОЯБРЯ 2026 ГОДА =====
+  const targetDate = new Date('2026-11-07T00:00:00').getTime() / 1000;
+  
+  new FlipDown(targetDate, 'flipdown', { 
+    theme: 'light',
+    headings: ["Дней", "Часов", "Минут", "Секунд"]
+  })
     .start()
-    .ifEnded(() => console.log('С днём свадьбы! 🎉'));
+    .ifEnded(() => {
+      console.log('🎉 С днём свадьбы, Матвей и Елена! 🎉');
+      const timerLabel = document.querySelector('.cal-timer-label');
+      if (timerLabel) {
+        timerLabel.textContent = '🎉 Сегодня наш день! 🎉';
+        timerLabel.style.color = '#C9A84C';
+        timerLabel.style.fontSize = '1.6rem';
+      }
+    });
 });

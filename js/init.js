@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Выделение ячейки календаря
-  document.querySelectorAll('.cal-cell').forEach(function(cell) {
-    if (cell.textContent.trim() === '19') {
-      cell.classList.add('active');
-    }
-  });
+  // ===== УДАЛИТЬ ЭТОТ БЛОК =====
+  // document.querySelectorAll('.cal-cell').forEach(function(cell) {
+  //   if (cell.textContent.trim() === '19') {
+  //     cell.classList.add('active');
+  //   }
+  // });
+  // ===== КОНЕЦ БЛОКА =====
 
   // Reveal-анимации
   const reveals = document.querySelectorAll('.reveal');

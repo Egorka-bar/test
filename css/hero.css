@@ -6,22 +6,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--cream);
+  background: #EFE9D7;
   overflow: hidden;
   padding: 60px 20px;
 }
 
 .hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../assets/1.png');
-  background-size: 420px auto;
-  background-position: center 35%;
-  background-repeat: no-repeat;
-  opacity: 0.12;
-  pointer-events: none;
-  filter: brightness(0) saturate(0);
+  display: none;
 }
 
 .hero-bg-ring {
@@ -50,24 +41,14 @@
 }
 
 .hero-eyebrow {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Great Vibes', cursive;
   font-style: italic;
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  letter-spacing: 0.1em;
+  font-size: clamp(4rem, 12vw, 8rem); /* увеличен */
+  letter-spacing: 0.05em;
   opacity: 0;
-  animation: shimmerGold 3s ease-in-out infinite alternate, fadeUp 1s ease forwards 0.3s;
-  background: linear-gradient(135deg, #c9a84c, #f5e18a, #c9a84c, #f5e18a);
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  animation: fadeUp 1s ease forwards 0.3s;
+  color: #898861;
   font-weight: 700;
-}
-
-@keyframes shimmerGold {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 /* ===== ТЕКСТ СНИЗУ ===== */
@@ -89,9 +70,9 @@
 }
 
 .hero-date {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Great Vibes', cursive;
   font-style: italic;
-  font-size: 2rem;
+  font-size: 2.6rem;        /* увеличен */
   letter-spacing: 0.12em;
   color: var(--text-light);
   opacity: 0;
@@ -99,8 +80,8 @@
 }
 
 .hero-subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;          /* увеличен */
   color: var(--text-light);
   letter-spacing: 0.08em;
   opacity: 0;
@@ -140,12 +121,13 @@
 .sketch-heart {
   position: absolute;
   font-size: 48px;
-  color: rgba(123,26,42,0.25);
-  font-family: 'Cormorant Garamond', serif;
+  color: rgba(125,40,38,0.25);
+  font-family: 'Great Vibes', cursive;
   transform: rotate(-10deg);
   animation: floatHeart 8s ease-in-out infinite;
   pointer-events: none;
 }
+
 @keyframes floatHeart {
   0%, 100% { transform: translateY(0) rotate(-10deg); }
   50% { transform: translateY(-15px) rotate(5deg); }

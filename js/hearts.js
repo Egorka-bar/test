@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const HEART_COUNT = 35;
   const hearts = [];
   const colors = [
-    'rgba(123,26,42,0.55)',
+    'rgba(125,40,38,0.55)', // Изменено с #7B1A2A на #7D2826
     'rgba(160,40,60,0.5)',
     'rgba(255,255,255,0.6)',
     'rgba(201,168,76,0.45)'
