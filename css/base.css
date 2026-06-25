@@ -18,11 +18,8 @@ html { scroll-behavior: smooth; }
 body {
   background: #EFE9D7;
   color: var(--text);
-  font-family: 'Great Vibes', cursive;
-  font-weight: 400;
-  font-size: 18px;          /* увеличен базовый размер */
-  line-height: 1.8;         /* увеличен межстрочный интервал */
-  letter-spacing: 0.02em;   /* небольшой межбуквенный просвет */
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
   overflow-x: hidden;
 }
 
@@ -62,8 +59,8 @@ body {
   color: white;
   border: 2px solid white;
   border-radius: 50px;
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.8rem;        /* увеличен */
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
 }
@@ -98,9 +95,9 @@ body {
 section { padding: 90px 20px; }
 .section-inner { max-width: 740px; margin: 0 auto; }
 .section-label {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.1rem;        /* увеличен */
+  font-size: 0.85rem;
   letter-spacing: 0.3em;
   color: var(--gold);
   text-transform: uppercase;
@@ -108,17 +105,17 @@ section { padding: 90px 20px; }
   display: block;
 }
 .section-heading {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.6rem, 6vw, 3.8rem); /* увеличен */
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 400;
   line-height: 1.2;
   color: var(--dark);
   margin-bottom: 28px;
 }
 .section-text {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.3rem;        /* увеличен */
-  line-height: 1.9;         /* увеличен */
+  font-family: 'Lato', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
   color: var(--text-light);
 }
 .gold-line {
@@ -128,7 +125,7 @@ section { padding: 90px 20px; }
   margin-bottom: 32px;
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER – оставляем Great Vibes ===== */
 footer {
   background: var(--dark);
   color: rgba(250,246,240,0.5);
@@ -138,17 +135,17 @@ footer {
 footer .footer-names {
   font-family: 'Great Vibes', cursive;
   font-style: italic;
-  font-size: 2.2rem;        /* увеличен */
+  font-size: 1.8rem;
   color: var(--gold);
   margin-bottom: 8px;
 }
 footer p {
   font-family: 'Great Vibes', cursive;
-  font-size: 1.1rem;        /* увеличен */
+  font-size: 0.82rem;
   letter-spacing: 0.1em;
 }
 
-/* ===== МУЗЫКАЛЬНЫЙ ПЛЕЕР (ВИНИЛ) ===== */
+/* ===== МУЗЫКАЛЬНЫЙ ПЛЕЕР (ВИНИЛ) – без изменений ===== */
 #music-player {
     position: fixed;
     bottom: 30px;
@@ -176,7 +173,6 @@ footer p {
     position: relative;
 }
 
-/* ===== ВИНИЛОВАЯ ПЛАСТИНКА ===== */
 .vinyl-record {
     width: 100%;
     height: 100%;
@@ -236,7 +232,6 @@ footer p {
     pointer-events: none;
 }
 
-/* ===== ЦЕНТРАЛЬНАЯ ЭТИКЕТКА ===== */
 .vinyl-center {
     position: absolute;
     top: 50%;
@@ -252,7 +247,6 @@ footer p {
     transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* ===== СОСТОЯНИЕ ПРОИГРЫВАНИЯ ===== */
 .music-icon.playing .vinyl-record {
     animation-play-state: running;
     box-shadow: 
@@ -268,7 +262,6 @@ footer p {
         0 0 15px rgba(201, 168, 76, 0.2);
 }
 
-/* ===== СОСТОЯНИЕ ПАУЗЫ ===== */
 .music-icon.paused .vinyl-record {
     animation-play-state: paused;
     box-shadow: 
@@ -281,13 +274,11 @@ footer p {
     background: radial-gradient(circle at 40% 35%, var(--gold-light), var(--gold) 60%, #a8892e);
 }
 
-/* ===== АНИМАЦИЯ ВРАЩЕНИЯ ===== */
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
-/* ===== АДАПТИВ ===== */
 @media (max-width: 480px) {
     #music-player {
         bottom: 20px;

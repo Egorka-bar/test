@@ -26,12 +26,10 @@
 .story-text-block .section-label {
   text-align: left;
   display: block;
-  font-size: 1.1rem;
 }
 
 .story-text-block .section-heading {
   text-align: left;
-  font-size: clamp(2.6rem, 6vw, 3.8rem);
 }
 
 .story-text-block .gold-line {
@@ -41,8 +39,6 @@
 
 .story-text-block .section-text {
   text-align: left;
-  font-size: 1.3rem;
-  line-height: 1.9;
 }
 
 .section-ornament {
@@ -74,16 +70,16 @@
   border-radius: 16px 16px 0 0;
 }
 .cal-month {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.8rem;        /* увеличен */
+  font-size: 1.4rem;
   color: var(--burgundy);
   letter-spacing: 0.15em;
   margin-bottom: 6px;
 }
 .cal-year {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.5rem;        /* увеличен */
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
   color: var(--text-light);
   letter-spacing: 0.3em;
   margin-bottom: 32px;
@@ -95,34 +91,30 @@
   margin-bottom: 0px;
 }
 .cal-header-cell {
-  font-family: 'Great Vibes', cursive;
-  font-size: 0.9rem;        /* увеличен */
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-light);
   padding: 6px 0;
   font-weight: 600;
+  font-family: 'Lato', sans-serif;
 }
 .cal-cell {
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.2rem;        /* увеличен */
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
   color: var(--text-light);
   position: relative;
   border-radius: 50%;
   transition: all 0.3s ease;
 }
-.cal-cell:not(.dimmed):not(.active):hover {
-  background: rgba(201,168,76,0.1);
-  transform: scale(1.05);
-}
 .cal-cell.active {
   background: transparent;
   color: #fff;
-  font-size: 1.5rem;        /* увеличен */
+  font-size: 1.2rem;
   font-weight: 700;
   position: relative;
   z-index: 2;
@@ -177,15 +169,15 @@
 }
 
 .cal-timer-label {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.5rem;        /* увеличен */
+  font-size: 1.2rem;
   color: var(--text-light);
   letter-spacing: 0.05em;
   margin-bottom: 20px;
 }
 
-/* ===== FLIPDOWN СТИЛИ (цифры оставлены Lato для читаемости) ===== */
+/* ===== FLIPDOWN СТИЛИ (без изменений) ===== */
 .flipdown {
   overflow: visible;
   width: 430px;
@@ -222,18 +214,10 @@
   font-weight: 400;
 }
 
-.flipdown .rotor-group:nth-child(1) .rotor-group-heading:before {
-  content: "Дней";
-}
-.flipdown .rotor-group:nth-child(2) .rotor-group-heading:before {
-  content: "Часов";
-}
-.flipdown .rotor-group:nth-child(3) .rotor-group-heading:before {
-  content: "Минут";
-}
-.flipdown .rotor-group:nth-child(4) .rotor-group-heading:before {
-  content: "Секунд";
-}
+.flipdown .rotor-group:nth-child(1) .rotor-group-heading:before { content: "Дней"; }
+.flipdown .rotor-group:nth-child(2) .rotor-group-heading:before { content: "Часов"; }
+.flipdown .rotor-group:nth-child(3) .rotor-group-heading:before { content: "Минут"; }
+.flipdown .rotor-group:nth-child(4) .rotor-group-heading:before { content: "Секунд"; }
 
 .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before,
 .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
@@ -245,13 +229,8 @@
   border-radius: 50%;
   background-color: var(--gold);
 }
-
-.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before {
-  bottom: 16px;
-}
-.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-  bottom: 40px;
-}
+.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before { bottom: 16px; }
+.flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after { bottom: 40px; }
 
 .flipdown .rotor {
   position: relative;
@@ -266,11 +245,7 @@
   background: #f5f0eb;
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
-
-.flipdown .rotor:last-child {
-  margin-right: 0;
-}
-
+.flipdown .rotor:last-child { margin-right: 0; }
 .flipdown .rotor-top,
 .flipdown .rotor-bottom {
   overflow: hidden;
@@ -278,7 +253,6 @@
   width: 40px;
   height: 32px;
 }
-
 .flipdown .rotor-leaf {
   z-index: 1;
   position: absolute;
@@ -287,12 +261,7 @@
   transform-style: preserve-3d;
   transition: transform 0s;
 }
-
-.flipdown .rotor-leaf.flipped {
-  transform: rotateX(-180deg);
-  transition: all 0.5s ease-in-out;
-}
-
+.flipdown .rotor-leaf.flipped { transform: rotateX(-180deg); transition: all 0.5s ease-in-out; }
 .flipdown .rotor-leaf-front,
 .flipdown .rotor-leaf-rear {
   overflow: hidden;
@@ -304,14 +273,12 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-
 .flipdown .rotor-leaf-front {
   line-height: 64px;
   border-radius: 5px 5px 0px 0px;
   color: #222;
   background: #e8e0d8;
 }
-
 .flipdown .rotor-leaf-rear {
   line-height: 0px;
   border-radius: 0px 0px 5px 5px;
@@ -319,14 +286,12 @@
   color: #333;
   background: #f5f0eb;
 }
-
 .flipdown .rotor-top {
   line-height: 64px;
   border-radius: 5px 5px 0px 0px;
   color: #222;
   background: #e8e0d8;
 }
-
 .flipdown .rotor-bottom {
   bottom: 0;
   line-height: 0px;
@@ -334,7 +299,6 @@
   color: #333;
   background: #f5f0eb;
 }
-
 .flipdown .rotor:after {
   content: '';
   z-index: 2;
@@ -347,146 +311,55 @@
   border-top: solid 1px rgba(0,0,0,0.08);
 }
 
-/* ===== АДАПТИВ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ ===== */
 @media (max-width: 550px) {
-  .calendar-card {
-    padding: 32px 20px;
-  }
+  .calendar-card { padding: 32px 20px; }
   .flipdown {
-    width: 320px;
-    height: 70px;
-    transform: scale(0.9);
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    justify-content: center !important;
+    width: 320px; height: 70px; transform: scale(0.9);
+    display: flex !important; flex-wrap: nowrap !important; justify-content: center !important;
   }
-  .flipdown .rotor {
-    font-size: 2rem;
-    margin-right: 3px;
-    height: 44px;
-    width: 30px;
-  }
-  .flipdown .rotor,
-  .flipdown .rotor-leaf,
-  .flipdown .rotor-leaf-front,
-  .flipdown .rotor-leaf-rear,
-  .flipdown .rotor-top,
-  .flipdown .rotor-bottom,
-  .flipdown .rotor:after {
-    width: 28px;
-  }
-  .flipdown .rotor-group {
-    padding-right: 16px;
-  }
-  .flipdown .rotor-group:last-child {
-    padding-right: 0px;
-  }
-  .flipdown .rotor-group-heading:before {
-    font-size: 0.6rem;
-    height: 18px;
-    line-height: 18px;
-  }
+  .flipdown .rotor { font-size: 2rem; margin-right: 3px; height: 44px; width: 30px; }
+  .flipdown .rotor, .flipdown .rotor-leaf, .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear, .flipdown .rotor-top, .flipdown .rotor-bottom,
+  .flipdown .rotor:after { width: 28px; }
+  .flipdown .rotor-group { padding-right: 16px; }
+  .flipdown .rotor-group:last-child { padding-right: 0px; }
+  .flipdown .rotor-group-heading:before { font-size: 0.6rem; height: 18px; line-height: 18px; }
   .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before,
-  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-    left: 68px;
-    height: 6px;
-    width: 6px;
-  }
-  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before {
-    bottom: 12px;
-  }
-  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-    bottom: 28px;
-  }
-  .flipdown .rotor-leaf-front,
-  .flipdown .rotor-top {
-    line-height: 44px;
-  }
-  .flipdown .rotor-leaf,
-  .flipdown .rotor {
-    height: 44px;
-  }
-  .flipdown .rotor-leaf-front,
-  .flipdown .rotor-leaf-rear,
-  .flipdown .rotor-top,
-  .flipdown .rotor-bottom,
-  .flipdown .rotor:after {
-    height: 22px;
-  }
-  .cal-timer-label {
-    font-size: 1.2rem;
-  }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after { left: 68px; height: 6px; width: 6px; }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before { bottom: 12px; }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after { bottom: 28px; }
+  .flipdown .rotor-leaf-front, .flipdown .rotor-top { line-height: 44px; }
+  .flipdown .rotor-leaf, .flipdown .rotor { height: 44px; }
+  .flipdown .rotor-leaf-front, .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top, .flipdown .rotor-bottom, .flipdown .rotor:after { height: 22px; }
+  .cal-timer-label { font-size: 1rem; }
 }
 
 @media (max-width: 400px) {
-  .calendar-card {
-    padding: 24px 16px;
-  }
+  .calendar-card { padding: 24px 16px; }
   .flipdown {
-    width: 260px;
-    height: 60px;
-    transform: scale(0.85);
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    justify-content: center !important;
+    width: 260px; height: 60px; transform: scale(0.85);
+    display: flex !important; flex-wrap: nowrap !important; justify-content: center !important;
   }
-  .flipdown .rotor {
-    font-size: 1.6rem;
-    margin-right: 2px;
-    height: 38px;
-    width: 24px;
-  }
-  .flipdown .rotor,
-  .flipdown .rotor-leaf,
-  .flipdown .rotor-leaf-front,
-  .flipdown .rotor-leaf-rear,
-  .flipdown .rotor-top,
-  .flipdown .rotor-bottom,
-  .flipdown .rotor:after {
-    width: 22px;
-  }
-  .flipdown .rotor-group {
-    padding-right: 12px;
-  }
-  .flipdown .rotor-group:last-child {
-    padding-right: 0px;
-  }
-  .flipdown .rotor-leaf-front,
-  .flipdown .rotor-top {
-    line-height: 38px;
-  }
-  .flipdown .rotor-leaf,
-  .flipdown .rotor {
-    height: 38px;
-  }
-  .flipdown .rotor-leaf-front,
-  .flipdown .rotor-leaf-rear,
-  .flipdown .rotor-top,
-  .flipdown .rotor-bottom,
-  .flipdown .rotor:after {
-    height: 19px;
-  }
-  .flipdown .rotor-group-heading:before {
-    font-size: 0.5rem;
-    height: 14px;
-    line-height: 14px;
-  }
+  .flipdown .rotor { font-size: 1.6rem; margin-right: 2px; height: 38px; width: 24px; }
+  .flipdown .rotor, .flipdown .rotor-leaf, .flipdown .rotor-leaf-front,
+  .flipdown .rotor-leaf-rear, .flipdown .rotor-top, .flipdown .rotor-bottom,
+  .flipdown .rotor:after { width: 22px; }
+  .flipdown .rotor-group { padding-right: 12px; }
+  .flipdown .rotor-group:last-child { padding-right: 0px; }
+  .flipdown .rotor-leaf-front, .flipdown .rotor-top { line-height: 38px; }
+  .flipdown .rotor-leaf, .flipdown .rotor { height: 38px; }
+  .flipdown .rotor-leaf-front, .flipdown .rotor-leaf-rear,
+  .flipdown .rotor-top, .flipdown .rotor-bottom, .flipdown .rotor:after { height: 19px; }
+  .flipdown .rotor-group-heading:before { font-size: 0.5rem; height: 14px; line-height: 14px; }
   .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before,
-  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-    left: 54px;
-    height: 5px;
-    width: 5px;
-  }
-  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before {
-    bottom: 10px;
-  }
-  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after {
-    bottom: 22px;
-  }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after { left: 54px; height: 5px; width: 5px; }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):before { bottom: 10px; }
+  .flipdown .rotor-group:nth-child(n+2):nth-child(-n+3):after { bottom: 22px; }
 }
 
 /* ============================================================
-   ═══ TIMELINE — с картинками справа и слева ═══
+   ═══ TIMELINE ═══
    ============================================================ */
 .timeline-section { 
   background: var(--burgundy);
@@ -500,18 +373,20 @@
   color: var(--gold-light);
   text-align: center;
   display: block;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.4em;
   margin-bottom: 14px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
 }
-
 .timeline-section .section-heading { 
   color: var(--cream);
   text-align: center;
-  font-size: clamp(2.6rem, 6vw, 3.8rem);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
   margin-bottom: 28px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
 }
-
 .timeline-section .gold-line { 
   background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
   margin: 0 auto 50px;
@@ -525,7 +400,6 @@
   padding: 0;
 }
 
-/* ===== КАЖДЫЙ ПУНКТ ===== */
 .tl-item {
   position: relative;
   padding-bottom: 80px;
@@ -533,71 +407,53 @@
   transform: translateY(30px);
   transition: all 0.8s ease;
 }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item.visible { opacity: 1; transform: translateY(0); }
 
-.tl-item:last-child {
-  padding-bottom: 0;
-}
-
-.tl-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ЧЕРЕДОВАНИЕ БЛОКОВ (исходное) */
 .tl-item:nth-child(odd) {
   padding-right: 50%;
   padding-left: 0;
   text-align: right;
 }
-
 .tl-item:nth-child(even) {
   padding-left: 50%;
   padding-right: 0;
   text-align: left;
 }
 
-/* ===== ОФОРМЛЕНИЕ ТЕКСТА ===== */
 .tl-time {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.8rem;        /* увеличен */
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--gold);
   line-height: 1.2;
   margin-bottom: 12px;
   letter-spacing: 0.05em;
 }
-
 .tl-title {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.8rem;        /* увеличен */
+  font-size: 1.5rem;
   color: rgba(250,246,240,0.95);
   margin-bottom: 10px;
   font-weight: 600;
 }
-
 .tl-desc {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.3rem;        /* увеличен */
+  font-family: 'Lato', sans-serif;
+  font-size: 1.05rem;
   color: rgba(250,246,240,0.6);
-  line-height: 1.9;
+  line-height: 1.7;
   font-weight: 300;
   max-width: 400px;
 }
+.tl-item:nth-child(odd) .tl-desc { margin-left: auto; }
+.tl-item:nth-child(even) .tl-desc { margin-right: auto; }
 
-.tl-item:nth-child(odd) .tl-desc {
-  margin-left: auto;
-}
-
-.tl-item:nth-child(even) .tl-desc {
-  margin-right: auto;
-}
-
-/* ===== ФОТО СПРАВА (первый пункт) ===== */
+/* ===== ФОТО В TIMELINE ===== */
 .tl-item-with-image .tl-image {
   position: absolute;
   right: 80px;
-  top: 44%;
+  top: 35%;
   transform: translateY(-50%);
   z-index: 2;
   max-width: 600px;
@@ -605,7 +461,6 @@
   opacity: 0.8;
   transition: opacity 0.3s ease;
 }
-
 .tl-item-with-image .tl-image img {
   display: block;
   width: 100%;
@@ -614,16 +469,12 @@
   object-fit: contain;
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
 }
+.tl-item-with-image:hover .tl-image { opacity: 1; }
 
-.tl-item-with-image:hover .tl-image {
-  opacity: 1;
-}
-
-/* ===== ФОТО СЛЕВА (второй пункт) ===== */
 .tl-item-with-image-left .tl-image {
   position: absolute;
-  left: 40px;
-  top: 42%;
+  left: 80px;
+  top: 45%;
   transform: translateY(-50%);
   z-index: 2;
   max-width: 600px;
@@ -631,7 +482,6 @@
   opacity: 0.8;
   transition: opacity 0.3s ease;
 }
-
 .tl-item-with-image-left .tl-image img {
   display: block;
   width: 100%;
@@ -640,74 +490,32 @@
   object-fit: contain;
   filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
 }
+.tl-item-with-image-left:hover .tl-image { opacity: 1; }
 
-.tl-item-with-image-left:hover .tl-image {
-  opacity: 1;
-}
-
-/* ===== АДАПТИВ — НА МАЛЕНЬКИХ ЭКРАНАХ ФОТО ПОД ТЕКСТОМ ===== */
 @media (max-width: 768px) {
-  .tl-item {
-    padding: 0 0 60px 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    text-align: center !important;
-  }
-
-  .tl-item:nth-child(odd),
-  .tl-item:nth-child(even) {
-    text-align: center !important;
-  }
-
-  .tl-item:nth-child(odd) .tl-desc,
-  .tl-item:nth-child(even) .tl-desc {
-    margin: 0 auto !important;
-    max-width: 100%;
-  }
-
+  .tl-item { padding: 0 0 60px 0 !important; text-align: center !important; }
+  .tl-item:nth-child(odd), .tl-item:nth-child(even) { text-align: center !important; }
+  .tl-item:nth-child(odd) .tl-desc, .tl-item:nth-child(even) .tl-desc { margin: 0 auto !important; max-width: 100%; }
   .tl-item-with-image .tl-image,
   .tl-item-with-image-left .tl-image {
-    position: static;
-    transform: none;
-    margin: 16px auto 0;
-    max-width: 150px;
-    max-height: 150px;
+    position: static; transform: none; margin: 16px auto 0; max-width: 150px; max-height: 150px;
   }
 }
 
 @media (max-width: 480px) {
-  .timeline-section {
-    padding: 60px 16px 80px;
-  }
-  .tl-item {
-    padding-bottom: 50px !important;
-  }
-  .tl-time {
-    font-size: 3rem;
-  }
-  .tl-title {
-    font-size: 1.5rem;
-  }
-  .tl-desc {
-    font-size: 1.1rem;
-  }
+  .timeline-section { padding: 60px 16px 80px; }
+  .tl-item { padding-bottom: 50px !important; }
+  .tl-time { font-size: 2.2rem; }
+  .tl-title { font-size: 1.1rem; }
+  .tl-desc { font-size: 0.9rem; }
   .tl-item-with-image .tl-image,
-  .tl-item-with-image-left .tl-image {
-    max-width: 120px;
-    max-height: 120px;
-  }
+  .tl-item-with-image-left .tl-image { max-width: 120px; max-height: 120px; }
 }
 
 /* ============================================================
-   ═══ LOCATION — КРАСИВОЕ ОФОРМЛЕНИЕ ═══
+   ═══ LOCATION ═══
    ============================================================ */
-.location-section { 
-  background: #EFE9D7;
-  padding: 80px 20px;
-  position: relative;
-}
-
-/* Декоративный фон */
+.location-section { background: #EFE9D7; padding: 80px 20px; position: relative; }
 .location-section::before {
   content: '♡';
   position: absolute;
@@ -718,7 +526,6 @@
   transform: rotate(15deg);
   pointer-events: none;
 }
-
 .location-card {
   background: #EFE9D7;
   border-radius: 24px;
@@ -733,23 +540,14 @@
   border: 1px solid rgba(201,168,76,0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.location-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.12);
-}
-
-/* Декоративная линия сверху */
+.location-card:hover { transform: translateY(-4px); box-shadow: 0 30px 80px rgba(0,0,0,0.12); }
 .location-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 4px;
   background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
 }
-
 .location-map-placeholder {
   aspect-ratio: 4/3;
   background: linear-gradient(145deg, #f5efe8 0%, #e8dfd6 100%);
@@ -761,17 +559,8 @@
   border-radius: 16px;
   box-shadow: inset 0 4px 20px rgba(0,0,0,0.04);
 }
-
-/* Стилизация карты */
-.location-map-placeholder svg {
-  opacity: 0.2;
-  transition: opacity 0.4s ease;
-}
-
-.location-card:hover .location-map-placeholder svg {
-  opacity: 0.3;
-}
-
+.location-map-placeholder svg { opacity: 0.2; transition: opacity 0.4s ease; }
+.location-card:hover .location-map-placeholder svg { opacity: 0.3; }
 .map-pin {
   color: var(--burgundy);
   font-size: 3rem;
@@ -779,27 +568,17 @@
   filter: drop-shadow(0 4px 12px rgba(125,40,38,0.2));
   transition: transform 0.3s ease;
 }
-
-.location-card:hover .map-pin {
-  transform: scale(1.1);
-}
-
-@keyframes pinBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
+.location-card:hover .map-pin { transform: scale(1.1); }
+@keyframes pinBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 .location-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.2rem;        /* увеличен */
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
   font-style: italic;
   color: var(--burgundy);
   margin-bottom: 8px;
   position: relative;
   display: inline-block;
 }
-
-/* Золотое подчёркивание */
 .location-name::after {
   content: '';
   position: absolute;
@@ -810,33 +589,29 @@
   background: linear-gradient(90deg, var(--gold), var(--gold-light));
   border-radius: 2px;
 }
-
 .location-address {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.3rem;        /* увеличен */
+  font-family: 'Lato', sans-serif;
+  font-size: 1.05rem;
   line-height: 1.9;
   color: var(--text-light);
   margin: 20px 0 28px;
   padding-left: 0;
   position: relative;
 }
-
-/* Иконка адреса */
 .location-address::before {
   content: '📍';
   margin-right: 10px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   opacity: 0.7;
 }
-
 .btn {
   display: inline-block;
   padding: 14px 36px;
   background: linear-gradient(135deg, var(--burgundy), var(--burgundy-dark));
   color: var(--cream);
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.3rem;        /* увеличен */
+  font-size: 1.05rem;
   letter-spacing: 0.08em;
   text-decoration: none;
   border: none;
@@ -847,60 +622,26 @@
   position: relative;
   overflow: hidden;
 }
-
 .btn::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 50px;
+  opacity: 0; transition: opacity 0.3s ease; border-radius: 50px;
 }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(125,40,38,0.35); }
+.btn:hover::after { opacity: 0.15; }
+.btn:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(125,40,38,0.2); }
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(125,40,38,0.35);
-}
-
-.btn:hover::after {
-  opacity: 0.15;
-}
-
-.btn:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 12px rgba(125,40,38,0.2);
-}
-
-/* Адаптив для location */
 @media (max-width: 768px) {
-  .location-card {
-    grid-template-columns: 1fr;
-    padding: 32px 24px;
-    gap: 24px;
-  }
-  .location-name {
-    font-size: 1.8rem;
-  }
-  .location-address {
-    font-size: 1.1rem;
-  }
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
+  .location-card { grid-template-columns: 1fr; padding: 32px 24px; gap: 24px; }
+  .location-name { font-size: 1.5rem; }
+  .location-address { font-size: 1rem; }
+  .btn { width: 100%; text-align: center; }
 }
-
 @media (max-width: 480px) {
-  .location-card {
-    padding: 24px 16px;
-  }
-  .location-name {
-    font-size: 1.5rem;
-  }
+  .location-card { padding: 24px 16px; }
+  .location-name { font-size: 1.3rem; }
 }
 
 /* ===== DRESS CODE ===== */
@@ -925,12 +666,10 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transition: transform 0.3s ease;
 }
-.swatch-color:hover {
-  transform: scale(1.1);
-}
+.swatch-color:hover { transform: scale(1.1); }
 .swatch-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1rem;          /* увеличен */
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
   color: var(--text-light);
   letter-spacing: 0.08em;
   text-align: center;
@@ -951,9 +690,9 @@
   gap: 6px;
 }
 .form-field label {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.2rem;        /* увеличен */
+  font-size: 0.95rem;
   color: var(--text-light);
   letter-spacing: 0.08em;
 }
@@ -962,9 +701,9 @@
 .form-field textarea {
   background: #EFE9D7;
   border: 1px solid rgba(201,168,76,0.35);
-  padding: 14px 18px;       /* увеличен padding */
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.2rem;        /* увеличен */
+  padding: 12px 16px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
   color: var(--dark);
   outline: none;
   transition: border-color 0.3s;
@@ -972,19 +711,17 @@
 }
 .form-field input:focus,
 .form-field select:focus,
-.form-field textarea:focus {
-  border-color: var(--gold);
-}
-.form-field textarea { resize: vertical; min-height: 100px; }
+.form-field textarea:focus { border-color: var(--gold); }
+.form-field textarea { resize: vertical; min-height: 90px; }
 .rsvp-submit {
   width: 100%;
-  padding: 18px;
+  padding: 16px;
   background: var(--burgundy);
   color: var(--cream);
   border: none;
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.4rem;        /* увеличен */
+  font-size: 1.1rem;
   letter-spacing: 0.15em;
   cursor: pointer;
   transition: background 0.3s;
@@ -996,18 +733,18 @@
   text-align: center;
   display: none;
   padding: 48px 0;
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
 }
 .rsvp-success .big-heart { font-size: 3rem; display: block; margin-bottom: 16px; }
-.rsvp-success p { 
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.5rem;        /* увеличен */
-  color: var(--text); 
-  line-height: 1.8; 
+.rsvp-success p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.3rem;
+  color: var(--text);
+  line-height: 1.8;
 }
 
-/* ===== RIBBON ===== */
+/* ===== RIBBON – оставляем Great Vibes ===== */
 .ribbon {
   background: #898861;
   color: var(--cream);
@@ -1025,7 +762,7 @@
 .ribbon-track span {
   font-family: 'Great Vibes', cursive;
   font-style: italic;
-  font-size: 1.2rem;        /* увеличен */
+  font-size: 1rem;
   letter-spacing: 0.12em;
   padding: 0 28px;
   white-space: nowrap;
@@ -1036,14 +773,13 @@
   100% { transform: translateX(-50%); }
 }
 
-/* ===== SHARE PHOTO — новый раздел ===== */
+/* ===== SHARE PHOTO ===== */
 .share-photo-section {
   background: var(--burgundy);
   padding: 80px 20px;
   position: relative;
   overflow: hidden;
 }
-
 .share-photo-section::before {
   content: '♥';
   position: absolute;
@@ -1054,7 +790,6 @@
   transform: rotate(-20deg);
   pointer-events: none;
 }
-
 .share-photo-section::after {
   content: '♥';
   position: absolute;
@@ -1065,7 +800,6 @@
   transform: rotate(15deg);
   pointer-events: none;
 }
-
 .share-photo-content {
   max-width: 680px;
   margin: 0 auto;
@@ -1079,33 +813,25 @@
   border: 1px solid rgba(201,168,76,0.15);
   transition: all 0.4s ease;
 }
-
 .share-photo-content:hover {
   background: rgba(255,255,255,0.08);
   border-color: rgba(201,168,76,0.25);
 }
-
 .share-icon {
   font-size: 4.5rem;
   margin-bottom: 20px;
   display: block;
   animation: floatIcon 3s ease-in-out infinite;
 }
-
-@keyframes floatIcon {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(5deg); }
-}
-
+@keyframes floatIcon { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(5deg); } }
 .share-text {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.3rem;        /* увеличен */
-  line-height: 1.9;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
   color: rgba(250,246,240,0.75);
   margin-bottom: 32px;
   font-weight: 300;
 }
-
 .share-btn {
   display: inline-flex;
   align-items: center;
@@ -1113,9 +839,9 @@
   padding: 16px 44px;
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   color: var(--burgundy-dark);
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.4rem;        /* увеличен */
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-decoration: none;
@@ -1125,59 +851,26 @@
   border: none;
   cursor: pointer;
 }
-
-.share-btn i {
-  font-size: 1.5rem;
-}
-
-.share-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(201,168,76,0.45);
-}
-
-.share-btn:active {
-  transform: translateY(0) scale(0.98);
-}
-
+.share-btn i { font-size: 1.3rem; }
+.share-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 40px rgba(201,168,76,0.45); }
+.share-btn:active { transform: translateY(0) scale(0.98); }
 .share-hint {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1rem;          /* увеличен */
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
   color: rgba(250,246,240,0.35);
   margin-top: 20px;
   letter-spacing: 0.05em;
 }
 
-/* Адаптив для share-photo */
 @media (max-width: 768px) {
-  .share-photo-content {
-    padding: 36px 24px;
-  }
-  .share-icon {
-    font-size: 3.5rem;
-  }
-  .share-text {
-    font-size: 1.1rem;
-  }
-  .share-btn {
-    padding: 14px 32px;
-    font-size: 1.2rem;
-  }
+  .share-photo-content { padding: 36px 24px; }
+  .share-icon { font-size: 3.5rem; }
+  .share-text { font-size: 1rem; }
+  .share-btn { padding: 14px 32px; font-size: 1rem; }
 }
-
 @media (max-width: 480px) {
-  .share-photo-content {
-    padding: 28px 16px;
-  }
-  .share-icon {
-    font-size: 2.8rem;
-  }
-  .share-text {
-    font-size: 1rem;
-  }
-  .share-btn {
-    padding: 12px 24px;
-    font-size: 1rem;
-    width: 100%;
-    justify-content: center;
-  }
+  .share-photo-content { padding: 28px 16px; }
+  .share-icon { font-size: 2.8rem; }
+  .share-text { font-size: 0.9rem; }
+  .share-btn { padding: 12px 24px; font-size: 0.95rem; width: 100%; justify-content: center; }
 }
